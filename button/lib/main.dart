@@ -6,12 +6,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Button',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'button'),
     );
   }
 }
@@ -25,28 +25,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var c = Colors.black;
-  var t = 'How R U?';
+  var black = Colors.black;
+  var message = 'How R U?';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: RaisedButton(
-          child: Text(t),
-          onPressed: (){
-            setState(() {
-              c = (c == Colors.black) ? Colors.red : Colors.black;
-              t = (t == 'How R U?') ? "i'm very happy with you": 'How R U?';
-            });
-          },
-          textColor: Colors.white,
-          color: c,
+        appBar: AppBar(
+          title: Text(widget.title),
         ),
-      )
-    );
+        body: Center(
+          child: RaisedButton(
+            child: Text(message),
+            onPressed: () {
+              setState(() {
+                black = (black == Colors.black) ? Colors.red : Colors.black;
+                message = (message == 'How R U?')
+                    ? "i'm very happy with you"
+                    : 'How R U?';
+              });
+            },
+            textColor: Colors.white,
+            color: black,
+          ),
+        ));
   }
 }
