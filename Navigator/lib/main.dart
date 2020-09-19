@@ -6,11 +6,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Navigator',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'navigator'),
     );
   }
 }
@@ -27,26 +27,24 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: RaisedButton(
-          child: Text('In'),
-          onPressed: (){
-            Navigator.push(context,
-                MaterialPageRoute<void>(builder: (BuildContext context){
-                  return out();
-                })
-            );
-          },
+        appBar: AppBar(
+          title: Text(widget.title),
         ),
-      )
-    );
+        body: Center(
+          child: RaisedButton(
+            child: Text('In'),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
+                return SubPage();
+              }));
+            },
+          ),
+        ));
   }
 }
 
-class out extends StatelessWidget{
+class SubPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,12 +52,10 @@ class out extends StatelessWidget{
         body: Center(
           child: RaisedButton(
             child: Text('out'),
-            onPressed: (){
+            onPressed: () {
               Navigator.pop(context);
             },
           ),
-        )
-    );
+        ));
   }
-
 }
