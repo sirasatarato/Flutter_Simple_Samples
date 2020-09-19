@@ -35,36 +35,35 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Builder(
-        builder: (context) =>
-          Center(
-            child: Column(
-              children: <Widget>[
-                makeRowContainer('아이디', true),
-                makeRowContainer('비밀번호', false),
-                Container(child: RaisedButton(
-                  child: Text('로그인', style: TextStyle(fontSize: 21)),
+        builder: (context) => Center(
+          child: Column(
+            children: <Widget>[
+              makeRowContainer('아이디', true),
+              makeRowContainer('비밀번호', false),
+              Container(
+                child: RaisedButton(
+                    child: Text('로그인', style: TextStyle(fontSize: 21)),
                     onPressed: () {
-                      if(userName == 'dart' && password == 'flutter') {
+                      if (userName == 'dart' && password == 'flutter') {
                         setState(() {
                           userName = '';
                           password = '';
                         });
-                      }
-                      else
+                      } else
                         Scaffold.of(context)
                           ..removeCurrentSnackBar()
-                          ..showSnackBar(SnackBar(content: Text('일치하지 않습니다!!')));
-                    }
-                  ),
-                  margin: EdgeInsets.only(top: 12),
-                ),
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),
+                          ..showSnackBar(
+                              SnackBar(content: Text('일치하지 않습니다!!')));
+                    }),
+                margin: EdgeInsets.only(top: 12),
+              ),
+            ],
+            mainAxisAlignment: MainAxisAlignment.center,
           ),
         ),
-      );
-    }
+      ),
+    );
+  }
 
   Widget makeRowContainer(String title, bool isUserName) {
     return Container(
@@ -95,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
         style: TextStyle(fontSize: 21, color: Colors.black),
         textAlign: TextAlign.center,
         onChanged: (String str) {
-          if(isUserName)
+          if (isUserName)
             userName = str;
           else
             password = str;
