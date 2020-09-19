@@ -10,11 +10,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Http',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'http'),
     );
   }
 }
@@ -50,7 +50,7 @@ class User {
 Future<User> fetchUser() async {
   final res = await http.get('https://jsonplaceholder.typicode.com/users/1');
 
-  if(res.statusCode == 200){
+  if (res.statusCode == 200) {
     final userMap = json.decode(res.body);
     return User.fromJson(userMap);
   }
@@ -90,8 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Center(child: Text(company['bs'], style: style)),
                   ],
                 );
-              }
-              else if (snapshot.hasError) {
+              } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }
               return CircularProgressIndicator();

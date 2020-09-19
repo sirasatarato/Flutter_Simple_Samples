@@ -6,11 +6,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Tab',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'tab'),
     );
   }
 }
@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
               isScrollable: true,
             ),
           ),
-          body:TabBarView(
+          body: TabBarView(
             children: choices.map((String choice) {
               return Center(
                 child: Text(
@@ -50,7 +50,6 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             }).toList(),
           ),
-        )
-    );
+        ));
   }
 }
