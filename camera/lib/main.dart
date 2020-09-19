@@ -8,11 +8,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Camera',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'camera'),
     );
   }
 }
@@ -38,26 +38,24 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         child: Column(
-            children: <Widget>[
-              Expanded(
-                child: Center(
-                  child: photo
+          children: <Widget>[
+            Expanded(
+              child: Center(child: photo),
+            ),
+            Row(
+              children: <Widget>[
+                RaisedButton(
+                  child: Text('앨범'),
+                  onPressed: () => onPhoto(ImageSource.gallery),
                 ),
-              ),
-              Row(
-                children: <Widget>[
-                  RaisedButton(
-                    child: Text('앨범'),
-                    onPressed: () => onPhoto(ImageSource.gallery),
-                  ),
-                  RaisedButton(
-                    child: Text('카메라'),
-                    onPressed: () => onPhoto(ImageSource.camera),
-                  ),
-                ],
+                RaisedButton(
+                  child: Text('카메라'),
+                  onPressed: () => onPhoto(ImageSource.camera),
+                ),
+              ],
               mainAxisAlignment: MainAxisAlignment.center,
-              ),
-            ],
+            ),
+          ],
           mainAxisAlignment: MainAxisAlignment.end,
         ),
       ),
