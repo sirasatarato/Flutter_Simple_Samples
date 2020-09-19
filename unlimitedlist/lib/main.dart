@@ -7,11 +7,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Unlimited List',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Unlimited List'),
     );
   }
 }
@@ -28,23 +28,24 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title),),
-      body: ListView.builder(itemBuilder: (context, index){
-        return ListTile(
-          title: Center(
-            child: Text(
-              index.toString(),
-              style: TextStyle(fontSize: 44),
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: ListView.builder(itemBuilder: (context, index) {
+          return ListTile(
+            title: Center(
+              child: Text(
+                index.toString(),
+                style: TextStyle(fontSize: 44),
+              ),
             ),
-          ),
-          onTap: (){
-            showDialog(
-                context: context,
-                builder: (BuildContext ctx) => AlertDialog(title: Text(index.toString()))
-            );
-          },
-        );
-      })
-    );
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext ctx) =>
+                      AlertDialog(title: Text(index.toString())));
+            },
+          );
+        }));
   }
 }
